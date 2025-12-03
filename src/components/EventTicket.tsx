@@ -39,14 +39,21 @@ export function EventTicket({ ticketInfo = defaultTicketInfo }: { ticketInfo?: T
   });
 
   return (
-    <div className="ticket-container ticket-border-gold rounded-xl w-full max-w-4xl mx-auto overflow-hidden">
+    <div className="ticket-container ticket-border-gold rounded-xl w-full max-w-4xl mx-auto overflow-hidden relative">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-20"
+        style={{ backgroundImage: `url(${concertImage})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/95" />
+      
       {/* Corner Ornaments */}
       <div className="corner-ornament top-left" />
       <div className="corner-ornament top-right" />
       <div className="corner-ornament bottom-left" />
       <div className="corner-ornament bottom-right" />
 
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row relative z-10">
         {/* Main Ticket Section */}
         <div className="flex-1 p-8 md:p-10">
           {/* Logo */}
@@ -62,15 +69,6 @@ export function EventTicket({ ticketInfo = defaultTicketInfo }: { ticketInfo?: T
             <span className="text-xs text-muted-foreground font-body tracking-widest uppercase">
               Ticket Officiel
             </span>
-          </div>
-
-          {/* Concert Image */}
-          <div className="mb-6 rounded-lg overflow-hidden border border-border/30">
-            <img 
-              src={concertImage} 
-              alt="Concert VANO" 
-              className="w-full h-32 md:h-40 object-cover"
-            />
           </div>
 
           {/* Decorative Line */}
