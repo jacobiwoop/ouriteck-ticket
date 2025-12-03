@@ -1,5 +1,6 @@
 import { QRCodeSVG } from 'qrcode.react';
 import { Calendar, Clock, MapPin, User, Ticket, CreditCard } from 'lucide-react';
+import concertImage from '@/assets/concert-image.jpg';
 
 interface TicketInfo {
   eventTitle: string;
@@ -38,7 +39,7 @@ export function EventTicket({ ticketInfo = defaultTicketInfo }: { ticketInfo?: T
   });
 
   return (
-    <div className="ticket-container ticket-border-gold rounded-xl w-full max-w-4xl mx-auto gold-shine">
+    <div className="ticket-container ticket-border-gold rounded-xl w-full max-w-4xl mx-auto overflow-hidden">
       {/* Corner Ornaments */}
       <div className="corner-ornament top-left" />
       <div className="corner-ornament top-right" />
@@ -63,15 +64,24 @@ export function EventTicket({ ticketInfo = defaultTicketInfo }: { ticketInfo?: T
             </span>
           </div>
 
+          {/* Concert Image */}
+          <div className="mb-6 rounded-lg overflow-hidden border border-border/30">
+            <img 
+              src={concertImage} 
+              alt="Concert VANO" 
+              className="w-full h-32 md:h-40 object-cover"
+            />
+          </div>
+
           {/* Decorative Line */}
-          <div className="decorative-line mb-8" />
+          <div className="decorative-line mb-6" />
 
           {/* Event Title */}
-          <div className="mb-8">
+          <div className="mb-6">
             <p className="text-sm text-muted-foreground font-body tracking-widest uppercase mb-2">
               {ticketInfo.eventTitle}
             </p>
-            <h1 className="font-display text-5xl md:text-6xl font-bold gold-text text-shadow-gold tracking-wide">
+            <h1 className="font-display text-4xl md:text-5xl font-bold gold-text text-shadow-gold tracking-wide">
               {ticketInfo.artistName}
             </h1>
           </div>
